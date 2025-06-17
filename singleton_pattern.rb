@@ -12,7 +12,8 @@ In Ruby, we can easily implement this using the `Singleton` module from Ruby’s
 * Logger classes
 * Configuration managers
 * Cache handlers
-* Service connectors (like database connection pools)
+* Service connectors (like database connection pools)If you’d like, I can help you prepare **interview questions** based on Singleton Class vs Singleton Pattern, or help you code more examples. Would you like that? 😊
+
 
 ---
 
@@ -29,7 +30,8 @@ end
 
 # Access the singleton instance
 config1 = AppConfig.instance
-config2 = AppConfig.instance
+config2 = AppConfig.instanceIf you’d like, I can help you prepare **interview questions** based on Singleton Class vs Singleton Pattern, or help you code more examples. Would you like that? 😊
+
 
 config1.app_name = "MyApp"
 config2.version = "1.0.0"
@@ -92,4 +94,3 @@ puts logger1.object_id == logger2.object_id  # => true
 
 ---
 
-If you’d like, I can help you prepare **interview questions** based on Singleton Class vs Singleton Pattern, or help you code more examples. Would you like that? 😊
