@@ -217,3 +217,10 @@ FROM pg_indexes
 WHERE tablename = 'users';
 or
 \d in pg console 
+
+
+
+How indexing works in PG for searching records BTREE
+
+ PostgreSQL will navigate the B-Tree as follows: Start at the root and determine that 2009 falls between 2005 and 2010 . Follow the pointer to the node that covers 2005-2010 . In this node, PostgreSQL finds 2009 and goes directly to the associated leaf node to retrieve data.
+https://dip-mazumder.medium.com/the-power-of-database-indexing-algorithms-b-tree-vs-hash-indexing-6e3a4112a81
