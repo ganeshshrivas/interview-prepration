@@ -218,5 +218,17 @@ WHERE d.dept_id IS NULL;
 | SELF JOIN       | N/A                      | Hierarchies        |
 | CROSS JOIN      | N/A                      | All combinations   |
 
+    ============================================================================
+SQL Injection is a critical security vulnerability that allows an attacker to manipulate your SQL queries by injecting malicious input, usually through forms, URLs, or any input field.
+
+User.where("email = '#{params[:email]}' AND password = '#{params[:password]}'").first
+
+
+params[:email] = "' OR 1=1 --"
+
+SELECT * FROM users WHERE email = '' OR 1=1 --' AND password = '...'
+🔴 OR 1=1 is always true
+🔴 -- comments out the rest
+➡️ Attacker logs in without valid credentials!
 
 
