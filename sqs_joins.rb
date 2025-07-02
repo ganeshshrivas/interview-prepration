@@ -231,4 +231,28 @@ SELECT * FROM users WHERE email = '' OR 1=1 --' AND password = '...'
 🔴 -- comments out the rest
 ➡️ Attacker logs in without valid credentials!
 
+======================================================================
+Q7: Write a SQL query to find users who placed the most orders.
+Answer:
 
+sql
+Copy
+Edit
+SELECT user_id, COUNT(*) AS order_count
+FROM orders
+GROUP BY user_id
+HAVING COUNT(*) = (
+  SELECT MAX(order_count)
+  FROM (
+    SELECT COUNT(*) AS order_count FROM orders GROUP BY user_id
+  ) AS sub
+);
+Q8: Find users who haven't placed any orders.
+Answer:
+
+sql
+Copy
+Edit
+SELECT * FROM users
+WHERE id NOT IN (SELECT DISTINCT user_id FROM orders);
+🔹 4. AWS / File Uploads
