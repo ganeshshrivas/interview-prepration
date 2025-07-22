@@ -1,0 +1,9 @@
+| Feature             | **Kafka**                                                                           | **SNS (Simple Notification Service)**           | **SQS (Simple Queue Service)**                    |
+| ------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------- |
+| **Type**            | Distributed Event Streaming Platform                                                | Pub/Sub (fan-out) Notification Service          | Message Queue (point-to-point)                    |
+| **Message Model**   | **Topic-based log**, supports **multiple consumers** with their own offset tracking | Pub/Sub push (to email, SMS, HTTP, SQS, Lambda) | FIFO or Standard queue for **decoupling systems** |
+| **Persistence**     | Messages persisted on disk (retention configurable)                                 | Optional (short-lived)                          | Yes (retained until processed or expired)         |
+| **Reprocessing**    | ✔ Replayable messages (based on offset)                                             | ❌ No (once delivered, it's gone)                | ❌ No (unless message visibility timeout is used)  |
+| **Scaling**         | High throughput (millions of messages/sec)                                          | Moderate throughput                             | Moderate throughput (scales horizontally)         |
+| **Use Case**        | Real-time stream processing, event sourcing                                         | Broadcasting messages to subscribers            | Decoupling between producer and consumer          |
+| **Delivery Method** | Consumers pull messages                                                             | Push (to subscribers)                           | Consumers pull messages                           |
