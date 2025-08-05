@@ -256,3 +256,25 @@ Edit
 SELECT * FROM users
 WHERE id NOT IN (SELECT DISTINCT user_id FROM orders);
 🔹 4. AWS / File Uploads
+
+ Find Duplicate Records
+  
+SELECT email, COUNT(*) 
+FROM users 
+GROUP BY email 
+HAVING COUNT(*) > 1;
+
+Get the second highest salary.
+
+SELECT MAX(salary) AS second_highest
+FROM employees
+WHERE salary < (SELECT MAX(salary) FROM employees);
+
+. Using DENSE_RANK() (SQL Server, PostgreSQL, Oracle, etc.)
+  
+SELECT salary
+FROM (
+    SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM employees
+) AS ranked
+WHERE rnk = 3;
