@@ -153,3 +153,6 @@ Ruby metaprogramming is about:
 * Defining/Modifying behavior at runtime
 * Making your code more flexible, powerful
 * Being **careful** with complexity
+
+
+Monkey patching means changing or extending a class or module at runtime — often adding new methods or modifying existing ones — without changing the original so
